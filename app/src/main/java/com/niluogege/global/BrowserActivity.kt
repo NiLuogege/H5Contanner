@@ -27,7 +27,12 @@ class BrowserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        StatusBarUtil.setLightModeNoFullscreen(this)
+        StatusBarUtil.setColor(this, resources.getColor(android.R.color.white), 0)
+
         setContentView(R.layout.activity_browser)
+
 
         webView = findViewById(R.id.webView)
         progressbar = findViewById(R.id.progressbar)
@@ -50,7 +55,6 @@ class BrowserActivity : AppCompatActivity() {
             WebView.setWebContentsDebuggingEnabled(true)
         }
 
-        Log.e("aaa",url)
         webView.loadUrl(url)
 
     }
